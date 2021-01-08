@@ -1,7 +1,7 @@
 module Main where
 
 -- Run this test with the command:
--- stack build Testing:test:spec-tests
+-- stack build Testing:test:unit-test
 
 import Test.Tasty
 import Test.Tasty.HUnit
