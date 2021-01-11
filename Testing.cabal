@@ -28,12 +28,14 @@ library
   exposed-modules:
       Basic
       Fences
+      FencesFast
   other-modules:
       Paths_Testing
   hs-source-dirs:
       src
   build-depends:
       base >=4.7 && <5
+    , array
   default-language: Haskell2010
 
 test-suite unit-test
@@ -80,12 +82,39 @@ test-suite fences-tests
     , tasty-hunit
   default-language: Haskell2010
 
-benchmark fences-benchmarks
+benchmark fences-benchmark
   type:                exitcode-stdio-1.0
   hs-source-dirs:      benchmark
   main-is:             FencesBenchmark.hs
   build-depends:       base
                      , Testing
+                     , criterion
+                     , random
+  default-language:    Haskell2010
+
+test-suite fences-fast-tests
+  type: exitcode-stdio-1.0
+  main-is: FencesFastTests.hs
+  other-modules:
+      Paths_Testing
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Testing
+    , base >=4.7 && <5
+    , array
+    , tasty
+    , tasty-hunit
+  default-language: Haskell2010
+
+benchmark fences-fast-benchmark
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      benchmark
+  main-is:             FencesFastBenchmark.hs
+  build-depends:       base
+                     , Testing
+                     , array
                      , criterion
                      , random
   default-language:    Haskell2010

@@ -11,7 +11,7 @@ import Fences
 main :: IO ()
 main = defaultMain simpleMathTests
 
--- TODO: Add some test cases, especially !
+-- TODO: Add some test cases, especially around size 10000!
 simpleMathTests :: TestTree
 simpleMathTests = testGroup "Simple Math Tests"
   [
