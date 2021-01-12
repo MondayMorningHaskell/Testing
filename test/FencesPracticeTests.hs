@@ -1,37 +1,46 @@
 module Main where
 
 -- Run this test with the command:
--- stack build Testing:test:fences-fast-tests
+-- stack build Testing:test:fences-practice-tests
 
 import Data.Array (listArray, array)
 import Test.Tasty
 import Test.Tasty.HUnit
 
-import FencesFast
+import FencesPractice
 
 main :: IO ()
-main = defaultMain fencesFastTests
+main = defaultMain fencesTests
 
-fencesFastTests :: TestTree
-fencesFastTests = testGroup "Fences Fast"
-  [ testCase "Size 1" $ largestRectangle input1 @?= output1
-  , testCase "Size 6" $ largestRectangle input6 @?= output6
-  , testCase "Size 10000" $ largestRectangle input10000 @?= output10000
+-- TODO: Write some test cases for each individual test group!
+--       Each of these relates to a specific function (or pair of functions)
+--       in the source file!
+fencesTests :: TestTree
+fencesTests = testGroup "All fences tests"
+  [ largestRectangleTests
+  , buildSegmentTreeTests
+  , minimumHeightTests
   ]
 
-output1 :: FenceSolution
-output1 = FenceSolution 5
+-- TODO: Test `largestRectangle` and `largestRectangleTail`!
+largestRectangleTests :: TestTree
+largestRectangleTests = testGroup "Largest Rectangle Tests"
+  [
+  ]
 
-input1 :: FenceValues
-input1 = FenceValues (array (0, 0) [(0, 5)])
+-- TODO: Test `buildSegmentTree` and `buildSegmentTreeTail`!
+buildSegmentTreeTests :: TestTree
+buildSegmentTreeTests = testGroup "Build Segment Tree Tests"
+  [
+  ]
 
-output6 :: FenceSolution
-output6 = FenceSolution 12
+-- TODO: Test `minimumHeightIndexValue`!
+minimumHeightTests :: TestTree
+minimumHeightTests = testGroup "Minimum Height Tests"
+  [
+  ]
 
-input6 :: FenceValues
-input6 = FenceValues (listArray (0, 5) [2, 5, 7, 4, 1, 8])
-
--- Solution to the input below
+-- Solution to the (large) input below
 output10000 :: FenceSolution
 output10000 = FenceSolution {unFenceSolution = 80914}
 

@@ -9,11 +9,11 @@ import Test.Tasty.HUnit
 import Fences
 
 main :: IO ()
-main = defaultMain simpleMathTests
+main = defaultMain simpleFencesTests
 
 -- TODO: Add some test cases, especially around size 10000!
-simpleMathTests :: TestTree
-simpleMathTests = testGroup "Simple Math Tests"
+simpleFencesTests :: TestTree
+simpleFencesTests = testGroup "Simple Fences Tests"
   [
   ]
 
